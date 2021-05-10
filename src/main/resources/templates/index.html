@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>[[#{login.btn}]]</title>
+		<!-- Bootstrap core CSS -->
+		<link href="asserts/css/bootstrap.min.css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" >
+		<!-- Custom styles for this template -->
+		<link href="asserts/css/signin.css" rel="stylesheet" th:href="@{/css/signin.css}">
+	</head>
+
+	<body class="text-center">
+		<form class="form-signin" th:action="@{/user/login}">
+			<img class="mb-4" src="asserts/img/bootstrap-solid.svg" alt="" width="72" height="72" th:src="@{/img/bootstrap-solid.svg}" >
+			<h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
+			<!-- 判断msg是否为空，如果为空就不显示，否则显示msg，用session传递参数 -->
+			<p style="color: #ff0000" th:text="${session.msg} " th:if="${session.msg != null}"></p>
+			<!-- 用model传递参数 -->
+			<!--<p style="color: #ff0000" th:text="${msg} " th:if="${not #strings.isEmpty(msg)}"></p>-->
+			<!-- 第二种方式默认为'' -->
+			<!--<p style="color: #ff0000" th:text="${#strings.defaultString(msg,'' )} "></p>-->
+
+			<label class="sr-only">Username</label>
+			<input type="text" name="username" class="form-control" placeholder="Username" required="" autofocus="" th:placeholder="#{login.username}">
+			<label class="sr-only">Password</label>
+			<input type="password" name="password" class="form-control" placeholder="Password" required="" th:placeholder="#{login.password}">
+			<div class="checkbox mb-3">
+				<label>
+          <input type="checkbox" value="remember-me" > [[#{login.remember}]]
+        </label>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{login.btn}">Sign in</button>
+			<p class="mt-5 mb-3 text-muted">© 2021-2022</p>
+			<a class="btn btn-sm" th:href="@{/index.html(lang='zh_CN')}">中文</a>
+			<a class="btn btn-sm" th:href="@{/index.html(lang='en_US')}">English</a>
+		</form>
+
+	</body>
+
+</html>
