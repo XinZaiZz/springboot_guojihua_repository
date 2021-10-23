@@ -1,7 +1,14 @@
 package com.youxin.entities;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel("文件上传类")
 public class FileList {
+    @ApiModelProperty("文件id")
     private Integer id;
+
+    @ApiModelProperty("文件名")
     private String name;
 
     @Override

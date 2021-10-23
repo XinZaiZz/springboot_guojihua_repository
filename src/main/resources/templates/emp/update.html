@@ -49,7 +49,7 @@
 			<div class="row">
 				<div th:replace="~{/common/commons::sidebar(active = 'list.html')}"></div>
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-				<form action="/add" method="post">
+				<form action="/update" method="post">
 					<input type="hidden" th:value="${emp.getId()}" name="id">
 					<div class="form-group">
 						<label for="exampleInputEmail1">姓名</label>
@@ -69,7 +69,7 @@
 							女
 						</label>
 					</div>
-					<select class="form-control" name="department.id">
+					<select class="form-control" name="departmentId">
 						<!-- 需要的是department对象中的一个属性而不是对象为了对应所以用dept.getId() -->
 						<option th:selected="${dept.getId() == emp.getDepartment().getId()}" th:each="dept:${depts}" th:text="${dept.getDepartmentName()}" th:value="${dept.getId()}">1</option>
 					</select>
