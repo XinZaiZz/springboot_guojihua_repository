@@ -42,6 +42,12 @@
 	</head>
 
 	<body>
+	<!-- 如果传过来存在没有授权信息 -->
+	<div th:if="${session.unAuthorized != null}" >
+		<script>
+				alert("授权未成功!");
+		</script>
+	</div>
 		<div th:replace="~{/common/commons.html::topbar}"></div>
 
 		<div class="container-fluid">
@@ -81,19 +87,19 @@
 
 		<!-- Bootstrap core JavaScript
     ================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
+		 <!--Placed at the end of the document so the pages load faster -->
 		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" ></script>
 		<script type="text/javascript" src="asserts/js/popper.min.js" ></script>
 		<script type="text/javascript" src="asserts/js/bootstrap.min.js" ></script>
 
 		<!-- Icons -->
-		<script type="text/javascript" src="asserts/js/feather.min.js" ></script>
+		<script type="text/javascript" src="asserts/js/feather.min.js" th:href="@{/js/feather.min.js}"></script>
 		<script>
 			feather.replace()
 		</script>
 
 		<!-- Graphs -->
-		<script type="text/javascript" src="asserts/js/Chart.min.js" ></script>
+		<script type="text/javascript" src="asserts/js/Chart.min.js" th:href="@{/js/Chart.min.js}"></script>
 		<script>
 			var ctx = document.getElementById("myChart");
 			var myChart = new Chart(ctx, {
@@ -122,6 +128,8 @@
 					}
 				}
 			});
+
+
 		</script>
 
 	</body>
